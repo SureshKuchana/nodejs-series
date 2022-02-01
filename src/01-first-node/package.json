@@ -12,6 +12,7 @@
   "author": "Suresh Koochana",
   "license": "ISC",
   "devDependencies": {
+    "@types/jest": "^27.4.0",
     "jest": "^27.4.7"
   },
   "dependencies": {
