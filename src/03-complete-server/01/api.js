@@ -19,6 +19,19 @@ async function listProducts(req, res) {
   }
 }
 
+async function getProduct(req, res, next) {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  const { id } = req.params;
+  try {
+    const filterProduct = await Products.get(id);
+    if (!filterProduct) return next();
+    res.json(filterProduct);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+}
+
 module.exports = {
   listProducts,
+  getProduct,
 };

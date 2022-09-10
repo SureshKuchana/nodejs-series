@@ -12,6 +12,12 @@ async function list(opts = {}) {
     .slice(offset, offset + limit);
 }
 
+async function get(id) {
+  const products = await fs.readFile(productsFile);
+  return JSON.parse(products).filter((x) => x._id === id);
+}
+
 module.exports = {
   list,
+  get,
 };
