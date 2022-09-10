@@ -4,7 +4,6 @@ const Products = require("./products");
 // Don't use the ES6 const to declare the fun, it will throw error,
 // ReferenceError: Cannot access 'listProducts' before initialization
 async function listProducts(req, res) {
-  res.setHeader("Access-Control-Allow-Origin", "*");
   const { offset = 0, limit = 25, tag } = req.query;
   try {
     res.json(
@@ -20,7 +19,6 @@ async function listProducts(req, res) {
 }
 
 async function getProduct(req, res, next) {
-  res.setHeader("Access-Control-Allow-Origin", "*");
   const { id } = req.params;
   try {
     const filterProduct = await Products.get(id);
