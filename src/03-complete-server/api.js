@@ -29,7 +29,23 @@ async function getProduct(req, res, next) {
   }
 }
 
+async function createProduct(req, res) {
+  console.log(" req, ", req.body);
+  res.json(req.body);
+}
+
+async function editProduct(req, res, next) {
+  res.json(req.body);
+}
+
+async function deleteProduct(req, res, next) {
+  res.json({ success: true });
+}
+
 module.exports = {
   listProducts,
   getProduct,
+  createProduct,
+  editProduct,
+  deleteProduct,
 };
