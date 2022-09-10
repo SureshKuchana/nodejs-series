@@ -1,7 +1,7 @@
 const fs = require("fs").promises;
 const path = require("path");
 
-const productsFile = path.join(__dirname, "../products.json");
+const productsFile = path.join(__dirname, "./products.json");
 
 async function list(opts = {}) {
   const { offset = 0, limit = 25, tag } = opts;
