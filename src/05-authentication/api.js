@@ -1,6 +1,7 @@
 const Orders = require("./models/orders");
 const Products = require("./models/products");
 const autoCatch = require("./lib/auto-catch");
+const Users = require('./models/users')
 
 module.exports = autoCatch({
   getProduct,
@@ -10,6 +11,7 @@ module.exports = autoCatch({
   deleteProduct,
   createOrder,
   listOrders,
+  createUser
 });
 
 async function getProduct(req, res, next) {
@@ -66,4 +68,10 @@ async function listOrders(req, res, next) {
   });
 
   res.json(orders);
+}
+
+async function createUser (req, res, next) {
+  const user = await Users.create(req.body)
+  const { username, email } = user
+  res.json({ username, email })
 }
